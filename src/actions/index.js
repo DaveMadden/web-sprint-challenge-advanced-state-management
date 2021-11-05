@@ -7,20 +7,16 @@ export const ADD_SMURF = "ADD_SMURF";
 export const SET_ERR = "ADD_ERR";
 
 export const fetchSmurfs = () =>{
-    console.log("in fetch smurfs")
     return (dispatch) => {
-        console.log("in fetchSmurfs return statement")
-        fetchStart();
+        dispatch(fetchStart());
 
         console.log("about to call axios")
         axios.get("http://localhost:3333/smurfs")
             .then(resp=>{
-                console.log("api resp: ", resp.data);
-                fetchSuccess(resp.data); //NEED TO CHECK THIS DATA AND DRILL DOWN
+                dispatch(fetchSuccess(resp.data)); //NEED TO CHECK THIS DATA AND DRILL DOWN
             })
             .catch(err=>{
-                console.error(err);
-                fetchErr(err)
+                dispatch(fetchErr(err))
             })
     }
 }

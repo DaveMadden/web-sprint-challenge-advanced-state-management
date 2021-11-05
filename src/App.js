@@ -11,11 +11,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 
 class App extends Component {
-
-  // console.log(props);
   
   componentDidMount = () =>{
-    console.log(this.props)
     this.props.fetchSmurfs();
   }
   

@@ -41,7 +41,7 @@ export const reducer = (state=initialState, action)=>{
                 error: ""
             });
         case SET_ERR: //not sure about use-case here
-        console.log("in case SET ERR")
+            console.log("in case SET ERR")
             return ({
                 ...state,
                 error: action.payload
