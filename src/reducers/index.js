@@ -6,10 +6,8 @@ export const initialState = {
 }
 
 export const reducer = (state=initialState, action)=>{
-    console.log("in reducer with action.type: ", action.type)
     switch(action.type){
         case FETCH_START:
-            console.log("in case FETCH START")
             return ({
                 ...state,
                 smurfs: [],
@@ -17,7 +15,6 @@ export const reducer = (state=initialState, action)=>{
                 error: ""
             });
         case FETCH_SUCCESS:
-            console.log("in case FETCH SUCCESS")
             return({
                 ...state,
                 smurfs: action.payload,
@@ -25,7 +22,6 @@ export const reducer = (state=initialState, action)=>{
                 error: ""
             });
         case FETCH_ERR:
-            console.log("in case FETCH ERR")
             return ({
                 ...state,
                 smurfs:[],
@@ -33,21 +29,18 @@ export const reducer = (state=initialState, action)=>{
                 error: action.payload
             });
         case ADD_SMURF:
-            console.log("in case ADD SMURF")
             return ({
                 ...state,
                 smurfs:[...state.smurfs, action.payload],
                 isLoading: false,
                 error: ""
             });
-        case SET_ERR: //not sure about use-case here
-            console.log("in case SET ERR")
+        case SET_ERR:
             return ({
                 ...state,
                 error: action.payload
             });
         default:
-            console.log("in case DEFAULT")
             return state;
     }
 }
