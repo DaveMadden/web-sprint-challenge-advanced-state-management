@@ -14,13 +14,13 @@ class App extends Component {
 
   // console.log(props);
   
-  componentDidMount(){
-    console.log("didmount")
-    fetchSmurfs();
+  componentDidMount = () =>{
+    console.log(this.props)
+    this.props.fetchSmurfs();
   }
   
   render() {
-    console.log("in render")
+    console.log("in render", this.props)
     return (
       <div className="App">
         <Header />
@@ -42,6 +42,16 @@ class App extends Component {
 //   }
 // }
 
+// const mapActionsToProps = state => {
+//   return {
+//     dispatch: connect.dispatch,
+//     fetchSmurfs: fetchSmurfs
+//   }
+// }
+
+// const mapDispatchToProps = {
+//   fetchSmurfs
+// }
 
 export default connect(null, { fetchSmurfs })(App);
 

@@ -10,18 +10,17 @@ export const fetchSmurfs = () =>{
     console.log("in fetch smurfs")
     return (dispatch) => {
         console.log("in fetchSmurfs return statement")
-        dispatch(fetchStart());
-
+        fetchStart();
 
         console.log("about to call axios")
         axios.get("http://localhost:3333/smurfs")
             .then(resp=>{
-                console.log(resp.data);
-                dispatch(fetchSuccess(resp.data)); //NEED TO CHECK THIS DATA AND DRILL DOWN
+                console.log("api resp: ", resp.data);
+                fetchSuccess(resp.data); //NEED TO CHECK THIS DATA AND DRILL DOWN
             })
             .catch(err=>{
                 console.error(err);
-                dispatch(fetchErr(err))
+                fetchErr(err)
             })
     }
 }
