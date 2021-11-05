@@ -16,10 +16,6 @@ import { connect } from 'react-redux';
         return <h1>Loading...</h1>;
     }
 
-    if (error !== ""){
-        return <h1>Error! {error}</h1>
-    }
-
     return(<div className="listContainer">
         {smurfs.map(x => <Smurf key={x.id} smurf={x}/>)}
     </div>);

@@ -36,7 +36,17 @@ export const fetchErr = (err) => {
 
 export const addSmurf = (newSmurf) => {
     console.log("action: addSmurf")
-    return({type: ADD_SMURF, payload: newSmurf});
+    // return({type: ADD_SMURF, payload: newSmurf});
+    return (dispatch)=>{
+        console.log("about to fucking post")
+        axios.post("http://localhost:3333/smurfs", newSmurf)
+            .then(resp=>{
+                dispatch({type: ADD_SMURF, payload: newSmurf})
+            })
+            .catch(err=>{
+                dispatch(setErr);
+            })
+    }
 }
 export const setErr = (err) => {
     console.log("action: setErr")
