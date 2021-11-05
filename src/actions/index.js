@@ -41,7 +41,8 @@ export const addSmurf = (newSmurf) => {
         console.log("about to fucking post")
         axios.post("http://localhost:3333/smurfs", newSmurf)
             .then(resp=>{
-                dispatch({type: ADD_SMURF, payload: newSmurf})
+                console.log("POST POST POST:", resp.data);
+                dispatch({type: ADD_SMURF, payload: resp.data[resp.data.length-1]})
             })
             .catch(err=>{
                 dispatch(setErr);

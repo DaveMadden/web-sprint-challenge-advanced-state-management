@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 
 import { setErr, addSmurf } from '../actions';
 
+const initialFormState = {
+    name:"",
+    position:"",
+    nickname:"",
+    description:""
+}
+
 const AddForm = (props) => {
-    const [state, setState] = useState({
-        name:"",
-        position:"",
-        nickname:"",
-        description:""
-    });
+    const [state, setState] = useState(initialFormState);
 
 
     const handleChange = e => {
@@ -26,6 +28,7 @@ const AddForm = (props) => {
         }
         else {
             props.addSmurf(state);
+            setState(initialFormState);
         }
     }
 
